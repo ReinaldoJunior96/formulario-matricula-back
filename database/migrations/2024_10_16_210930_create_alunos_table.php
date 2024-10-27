@@ -15,8 +15,7 @@ class CreateAlunosTable extends Migration
             $table->enum('sexo', ['M', 'F']);
             $table->enum('tipo_cadastro', ['matricula', 'rematricula']);
             $table->string('serie_2025')->nullable();
-            $table->enum('modalidade', ['integral', 'parcial']);
-            $table->enum('turno', ['manha', 'tarde']);
+            $table->enum('modalidade', ['vespertino', 'matutino', 'integral']);
             $table->string('nome_mae')->nullable();
             $table->string('responsavel_financeiro')->nullable();
             $table->string('telefone')->nullable();

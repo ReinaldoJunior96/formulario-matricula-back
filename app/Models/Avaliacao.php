@@ -12,7 +12,6 @@ class Avaliacao extends Model
 
     protected $fillable = [
         'aluno_id',
-        'categoria',
         'pergunta',
         'resposta',
         'pontuacao',

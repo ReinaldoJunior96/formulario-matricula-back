@@ -14,7 +14,6 @@ class AvaliacaoFactory extends Factory
     {
         return [
             'aluno_id' => Aluno::factory(), // Gera um aluno automaticamente se não for fornecido
-            'categoria' => $this->faker->randomElement(['Comportamental', 'Acadêmico']),
             'pergunta' => $this->faker->sentence(),
             'resposta' => $this->faker->randomElement(['S', 'AV', 'N']),
             'pontuacao' => $this->faker->numberBetween(1, 10),

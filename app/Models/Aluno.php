@@ -16,7 +16,6 @@ class Aluno extends Model
         'tipo_cadastro',
         'serie_2025',
         'modalidade',
-        'turno',
         'nome_mae',
         'responsavel_financeiro',
         'telefone',
