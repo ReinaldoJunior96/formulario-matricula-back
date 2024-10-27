@@ -68,8 +68,6 @@ class AlunoRequest extends FormRequest
             'avaliacoes.*.resposta.in' => 'A resposta da avaliação deve ser "S" (Sim), "AV" (À verificar) ou "N" (Não).',
             'avaliacoes.*.pontuacao.required' => 'O campo pontuação é obrigatório.',
             'avaliacoes.*.pontuacao.integer' => 'A pontuação deve ser um número inteiro.',
-            'avaliacoes.*.pontuacao.min' => 'A pontuação mínima é 1.',
-            'avaliacoes.*.pontuacao.max' => 'A pontuação máxima é 10.',
         ];
     }
 
