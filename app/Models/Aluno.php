@@ -19,6 +19,7 @@ class Aluno extends Model
         'nome_mae',
         'responsavel_financeiro',
         'telefone',
+        'senha_cadastro',
         'email',
         'possui_deficiencia',
     ];

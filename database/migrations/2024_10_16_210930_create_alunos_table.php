@@ -21,6 +21,7 @@ class CreateAlunosTable extends Migration
             $table->string('telefone')->nullable();
             $table->string('email')->nullable();
             $table->boolean('possui_deficiencia')->default(false);
+            $table->string(column: 'senha_cadastro')->nullable();
             $table->timestamps();
         });
     }

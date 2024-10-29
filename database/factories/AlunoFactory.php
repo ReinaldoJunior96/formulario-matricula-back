@@ -6,6 +6,7 @@ use App\Models\Aluno;
 use App\Models\Diagnostico;
 use App\Models\Avaliacao;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class AlunoFactory extends Factory
 {
@@ -24,6 +25,7 @@ class AlunoFactory extends Factory
             'responsavel_financeiro' => $this->faker->name(),
             'telefone' => $this->faker->phoneNumber(),
             'email' => $this->faker->safeEmail(),
+            'senha_cadastro' => Str::random(8),
             'possui_deficiencia' => $this->faker->boolean(),
         ];
     }

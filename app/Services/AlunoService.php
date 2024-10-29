@@ -15,34 +15,41 @@ class AlunoService
 {
     public function getAll()
     {
-        // Carrega os alunos com os relacionamentos de diagnósticos e avaliações
         return Aluno::with(['diagnosticos', 'avaliacoes'])->get();
     }
 
     public function store(AlunoRequest $request)
     {
-        $senhaGerada = Str::random(8);
+
+        if ($request->tipo_cadastro === "matricula") {
+            $senhaGerada = "M" . Str::random(8);
+        } else {
+            $senhaGerada = "R" . Str::random(8);
+        }
+
 
         // Variável $aluno será acessível fora da transação
         $aluno = null;
 
         // Usando transações para garantir que todos os dados sejam salvos corretamente
-        DB::transaction(function () use ($request, &$aluno) {
+        DB::transaction(function () use ($request, &$aluno, &$senhaGerada) {
             // Primeiro, criar o aluno
-            $aluno = Aluno::create($request->only([
-                'nome',
-                'idade',
-                'sexo',
-                'tipo_cadastro',
-                'serie_2025',
-                'modalidade',
-                'nome_mae',
-                'responsavel_financeiro',
-                'telefone',
-                'email',
-                'possui_deficiencia'
-            ]));
-
+            $aluno = Aluno::create(array_merge(
+                $request->only([
+                    'nome',
+                    'idade',
+                    'sexo',
+                    'tipo_cadastro',
+                    'serie_2025',
+                    'modalidade',
+                    'nome_mae',
+                    'responsavel_financeiro',
+                    'telefone',
+                    'email',
+                    'possui_deficiencia'
+                ]),
+                ['senha_cadastro' => $senhaGerada]
+            ));
             // Criar os diagnósticos associados ao aluno
             foreach ($request->diagnosticos as $diagnosticoData) {
                 Diagnostico::create(array_merge($diagnosticoData, ['aluno_id' => $aluno->id]));
@@ -56,6 +63,9 @@ class AlunoService
 
         Mail::to($aluno->email)->send(new PreMatriculaRealizada($aluno->nome, $senhaGerada));
 
-        return response()->json(['message' => 'Aluno, Diagnóstico e Avaliações cadastrados com sucesso!'], 201);
+        return response()->json([
+            'message' => 'Formulário registrado com sucesso!',
+            'senha_gerada' => $senhaGerada
+        ], 201);
     }
 }
