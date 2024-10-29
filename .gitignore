@@ -1,0 +1,35 @@
+# Ignorar o ambiente de desenvolvimento e os arquivos de configuração específicos do ambiente
+.env
+.env.*
+
+# Diretórios de cache e arquivos de log
+/storage/*.key
+/storage/*.log
+/storage/framework/*
+/storage/logs/*
+/storage/app/public/*
+
+# Ignorar arquivos de cache de rotas e configuração
+/bootstrap/cache/*.php
+
+# Diretórios específicos de dependências e caches de pacotes
+/vendor/
+node_modules/
+
+# Ignorar arquivos de testes de PHPUnit
+.phpunit.result.cache
+
+# Ignorar IDE e configurações de editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Ignorar arquivos de compilação do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de dependência de Composer e NPM
+composer.lock
+package-lock.json
+yarn.lock
