@@ -36,9 +36,9 @@ class AlunoRequest extends FormRequest
             'diagnosticos.*.responsavel' => 'nullable|string|max:255',
             'diagnosticos.*.email_responsavel' => 'nullable|email|max:255',
             'diagnosticos.*.telefone_responsavel' => 'nullable|string|max:255',
-            'avaliacoes.*.pergunta' => 'string',
+            'avaliacoes.*.pergunta' => 'nullable|string',
             'avaliacoes.*.resposta' => 'nullable|in:S,AV,N',
-            'avaliacoes.*.pontuacao' => 'integer',
+            'avaliacoes.*.pontuacao' => 'nullable|integer',
         ];
     }
 
