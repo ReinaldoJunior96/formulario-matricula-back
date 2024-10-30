@@ -9,6 +9,7 @@ services:
       - ./:/var/www
     networks:
       - laravel_network
+      - formulario-cadastro  # Conecta à rede externa
     depends_on:
       - db
 
@@ -23,6 +24,7 @@ services:
       - "8082:80"
     networks:
       - laravel_network
+      - formulario-cadastro  # Conecta à rede externa
     depends_on:
       - app
 
@@ -40,9 +42,12 @@ services:
       - "3309:3306"
     networks:
       - laravel_network
+      - formulario-cadastro  # Conecta à rede externa
 
 networks:
   laravel_network:
+  formulario-cadastro:
+    external: true  # Declara que a rede já existe
 
 volumes:
   dbdata:
