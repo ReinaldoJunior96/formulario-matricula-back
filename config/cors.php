@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['*'],
+    'paths' => ['api/*'],
     'allowed_methods' => ['*'],
     'allowed_origins' => ['http://62.72.24.154:8081'],
     'allowed_origins_patterns' => [],
