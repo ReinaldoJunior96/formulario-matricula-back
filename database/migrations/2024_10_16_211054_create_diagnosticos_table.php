@@ -10,7 +10,7 @@ class CreateDiagnosticosTable extends Migration
     {
         Schema::create('diagnosticos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('aluno_id')->constrained('alunos')->onDelete('cascade');
+            $table->foreignId('aluno_id')->constrained('alunos')->onDelete('cascade')->nullable();
             $table->string('diagnostico')->nullable();
             $table->boolean('epilepsia')->default(false);
             $table->boolean('deficiencia_intelectual')->default(false);

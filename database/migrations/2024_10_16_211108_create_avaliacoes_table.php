@@ -10,9 +10,9 @@ class CreateAvaliacoesTable extends Migration
     {
         Schema::create('avaliacoes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('aluno_id')->constrained('alunos')->onDelete('cascade');
-            $table->string('pergunta');
-            $table->enum('resposta', ['S', 'AV', 'N']);
+            $table->foreignId('aluno_id')->constrained('alunos')->onDelete('cascade')->nullable();
+            $table->string('pergunta')->nullable();
+            $table->enum('resposta', ['S', 'AV', 'N'])->nullable();
             $table->integer('pontuacao')->nullable();
             $table->timestamps();
         });
